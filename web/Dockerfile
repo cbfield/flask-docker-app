@@ -23,7 +23,7 @@ WORKDIR /home/flask
 USER flask
 COPY . .
 
-ENV FLASK_APP web
+ENV FLASK_APP .
 ENV FLASK_ENV development
 
 EXPOSE 5000
