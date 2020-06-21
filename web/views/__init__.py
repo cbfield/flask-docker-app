@@ -1,16 +1,10 @@
-import importlib.util
 import os
 
-pwd = os.path.dirname(os.path.abspath(__file__))
-modules = os.listdir(pwd)
+modules = [
+    f for f in os.listdir(os.path.dirname(os.path.abspath(__file__)))
+    if f.endswith('.py') and f != '__init__.py']
 
 blueprints = []
 for module in modules:
-    if (not module.endswith('.py')) or (module == '__init__.py'):
-        continue
-
-    spec = importlib.util.spec_from_file_location(f'{module[:-3]}', f'{pwd}/{module}')
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    
+    mod = __import__(name=f'web.views.{module[:-3]}',fromlist=['views'])
     blueprints.append(mod.views)
