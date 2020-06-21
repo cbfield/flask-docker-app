@@ -4,8 +4,10 @@ from datetime import datetime
 app = Flask(__name__)
 
 @app.context_processor
-def context_now():
-    return {'now': datetime.utcnow()}
+def base_context():
+    return {
+        'now': datetime.utcnow()
+    }
 
 @app.route('/')
 def index():

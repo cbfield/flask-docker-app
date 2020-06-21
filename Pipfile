@@ -13,4 +13,4 @@ flask = "*"
 python_version = "3.8"
 
 [scripts]
-flask = "flask run"
+flask = "flask run -h $FLASK_HOST -p $FLASK_PORT"
