@@ -1,4 +1,3 @@
-
 var tag = document.createElement('h2')
 const text = document.createTextNode("The javscript link works")
 tag.appendChild(text)
