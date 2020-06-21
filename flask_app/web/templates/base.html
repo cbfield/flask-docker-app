@@ -12,6 +12,9 @@
 </head>
 <body>
     {% block content %}{% endblock %}
+    <div class="container-fluid mb-3" id="title-checker">
+        <h6 class="lead text-dark">{{ title|capitalize }}</h6>
+    </div>
 
     <div class="footer container-fluid">
         &copy; Copyright {{ now.year }} by Topher Basketfield
