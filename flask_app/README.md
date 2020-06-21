@@ -1,4 +1,4 @@
-# WEB
+# Flask App
 
 This is the Flask portion of the application. For local development, keep a `.env` file in this directory that looks like this:
 ```
