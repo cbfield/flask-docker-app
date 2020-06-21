@@ -7,25 +7,30 @@ services:
     restart: always
     depends_on: 
       - redis
-      - nginx_rproxy
     ports:
       - '8080:8080'
+
   nginx_rproxy:
-    build: nginx_rproxy
-    image: christopherbasketfield/nginx_rproxy
+    image: nginx:alpine
     restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./letsencrypt-site:/usr/share/nginx/html
     ports:
       - '80:80'
+    networks:
+      - default_network
+
   redis:
     image: redis:alpine
     command: redis-server --requirepass SeCrEtPaSsWoRd
     ports:
       - '6379:6379'
     volumes:
-      - redis-data:/var/lib/redis
+      - ./volumes/redis_data:/var/lib/redis
     environment:
       - REDIS_REPLICATION_MODE=master
 
-volumes:
-  redis-data:
-    driver: local
+networks:
+  default_network:
+    driver: bridge
