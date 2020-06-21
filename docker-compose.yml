@@ -1,21 +1,18 @@
 version: '3'
 
 services:
-  flask_app:
+  flask:
     build: flask_app
-    image: christopherbasketfield/flask_app
     restart: always
     depends_on: 
       - redis
     ports:
       - '8080:8080'
-
-  nginx_rproxy:
+  nginx:
     image: nginx:alpine
     restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./letsencrypt-site:/usr/share/nginx/html
     ports:
       - '80:80'
     networks:
