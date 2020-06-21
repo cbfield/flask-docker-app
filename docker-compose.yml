@@ -1,15 +1,17 @@
 version: '3'
 
 services:
-  flask:
+  flask_app:
     build: flask_app
+    image: christopherbasketfield/flask_app
     restart: always
     depends_on: 
       - redis
     ports:
       - '8080:8080'
-  nginx:
-    build: nginx
+  nginx_rproxy:
+    build: nginx_rproxy
+    image: christopherbasketfield/nginx_rproxy
     restart: always
     ports:
       - '80:80'
