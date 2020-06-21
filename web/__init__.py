@@ -1,7 +1,7 @@
 from flask import Flask
 from datetime import datetime
 
-from .views import view_blueprints
+from .views import blueprints
 
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 def base_context():
     return {'now': datetime.utcnow()}
 
-for blueprint in view_blueprints:
+for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
 if __name__ == "__main__":
