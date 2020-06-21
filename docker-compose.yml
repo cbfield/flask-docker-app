@@ -2,7 +2,6 @@ version: '3'
 
 services:
   flask:
-    image: flask_app
-    build: web
+    build: flask_app
     ports:
       - '5000:5000'
