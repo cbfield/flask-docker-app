@@ -26,6 +26,6 @@ COPY . .
 ENV FLASK_APP src/app.py
 ENV FLASK_ENV development
 
-EXPOSE 5000:5000
+EXPOSE 5000
 ENTRYPOINT ["flask","run"]
 CMD ["--host=0.0.0.0","--port=5000"]
