@@ -7,6 +7,7 @@ services:
     restart: always
     depends_on: 
       - redis
+      - nginx_rproxy
     ports:
       - '8080:8080'
   nginx_rproxy:
