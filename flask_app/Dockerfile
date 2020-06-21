@@ -7,7 +7,7 @@ ENV LC_CTYPE C.UTF-8
 FROM base AS dependencies
 
 RUN pip install pipenv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc-dev
 
 COPY Pipfile .
 COPY Pipfile.lock .
@@ -26,6 +26,5 @@ COPY . .
 ENV FLASK_APP web
 ENV FLASK_ENV development
 
-EXPOSE 5000
-ENTRYPOINT ["flask","run"]
-CMD ["--host=0.0.0.0","--port=5000"]
+EXPOSE 8080
+CMD ["uwsgi", "app.ini"]

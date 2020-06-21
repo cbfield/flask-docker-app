@@ -9,6 +9,7 @@ python-dotenv = "*"
 [packages]
 flask = "*"
 redis = "*"
+uwsgi = "*"
 
 [requires]
 python_version = "3.8"
