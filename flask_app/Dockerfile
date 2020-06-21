@@ -13,7 +13,7 @@ COPY Pipfile .
 COPY Pipfile.lock .
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
 
-FROM base as runtime
+FROM base AS runtime
 
 COPY --from=dependencies /.venv /.venv
 ENV PATH="/.venv/bin:$PATH"
