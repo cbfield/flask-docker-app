@@ -4,7 +4,7 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV LC_CTYPE C.UTF-8
 
-FROM base AS deps
+FROM base AS dependencies
 
 RUN pip install pipenv
 RUN apt-get update && apt-get install -y --no-install-recommends gcc
@@ -15,7 +15,7 @@ RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
 
 FROM base as runtime
 
-COPY --from=deps /.venv /.venv
+COPY --from=dependencies /.venv /.venv
 ENV PATH="/.venv/bin:$PATH"
 
 RUN useradd --create-home flask
@@ -23,7 +23,7 @@ WORKDIR /home/flask
 USER flask
 COPY . .
 
-ENV FLASK_APP src/app.py
+ENV FLASK_APP web
 ENV FLASK_ENV development
 
 EXPOSE 5000
