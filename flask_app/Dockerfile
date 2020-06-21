@@ -26,5 +26,4 @@ COPY . .
 ENV FLASK_APP web
 ENV FLASK_ENV development
 
-EXPOSE 8080
 CMD ["uwsgi", "app.ini"]
