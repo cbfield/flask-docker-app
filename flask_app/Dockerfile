@@ -27,6 +27,5 @@ ENV FLASK_APP web
 ENV FLASK_ENV development
 
 EXPOSE 5000
-EXPOSE 6379
 ENTRYPOINT ["flask","run"]
 CMD ["--host=0.0.0.0","--port=5000"]
