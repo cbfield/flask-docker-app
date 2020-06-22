@@ -3,6 +3,7 @@ version: '3'
 services:
   flask:
     build: src
+    image: christopherbasketfield/flask_app
     restart: always
     depends_on: 
       - redis
