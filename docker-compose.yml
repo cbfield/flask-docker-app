@@ -2,10 +2,13 @@ version: '3'
 
 services:
   flask:
-    build: src
+    build:
+      context: src
+      args:
+        - PYTHON_VERSION=python:3.8-slim
     image: christopherbasketfield/flask_app
     restart: always
-    depends_on: 
+    depends_on:
       - redis
     ports:
       - '8080:8080'

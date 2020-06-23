@@ -1,8 +1,6 @@
-FROM python:3.8-slim AS base
+ARG PYTHON_VERSION
 
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
-ENV LC_CTYPE C.UTF-8
+FROM ${PYTHON_VERSION} AS base
 
 FROM base AS dependencies
 
