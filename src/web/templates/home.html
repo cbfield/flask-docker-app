@@ -4,7 +4,9 @@
 
 {% block content %}
 <section class="container-fluid pt-3" id="content">
-    <h1 class="jumbotron">Hello World!</h1>
-    <h3 class="lead text-light">Redis User: {{ context.user }}</h3>
+    <h1 class="jumbotron">It's Alive!</h1>
+    <h3 class="lead text-light">Redis Bits: {{ context.a_value }}</h3>
+    <h3 class="lead text-light">Host: {{ context.host }}</h3>
+    <h2 class="m-2 p-2" ><a href="/about" class="text-light" >About</a></h2>
 </section>
 {% endblock %}
