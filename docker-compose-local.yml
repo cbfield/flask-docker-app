@@ -3,7 +3,11 @@ version: '3'
 services:
   flask:
     image: christopherbasketfield/flask_app
-    # restart: always
+    build:
+      context: flask
+      args:
+        - PYTHON_VERSION=python:3.8-slim
+    restart: always
     depends_on:
       - redis
     ports:
@@ -11,7 +15,9 @@ services:
 
   nginx:
     image: christopherbasketfield/nginx_flask_proxy
-    # restart: always
+    build:
+      context: nginx
+    restart: always
     ports:
       - '80:80'
 
